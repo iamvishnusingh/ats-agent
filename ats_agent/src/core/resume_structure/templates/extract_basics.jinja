@@ -1,0 +1,20 @@
+From the resume text below, extract identity and headline fields only.
+
+--- resume ---
+{{ text_content }}
+---
+
+Return JSON exactly in this shape:
+{
+  "basics": {
+    "name": null,
+    "email": null,
+    "phone": null,
+    "url": null,
+    "summary": null,
+    "location": { "city": null, "countryCode": null },
+    "profiles": [ { "network": null, "url": null, "username": null } ]
+  }
+}
+
+Include profiles **only** when an explicit URL or handle appears in the resume. Otherwise use `"profiles": []`.

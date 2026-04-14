@@ -1,0 +1,21 @@
+From the resume text below, extract paid or professional roles (internships count).
+
+--- resume ---
+{{ text_content }}
+---
+
+Return JSON:
+{
+  "work": [
+    {
+      "name": "organization",
+      "position": "title",
+      "startDate": "YYYY-MM or best effort",
+      "endDate": "YYYY-MM, Present, or null",
+      "summary": "short role summary if present",
+      "highlights": ["measurable bullets as strings"]
+    }
+  ]
+}
+
+If no roles are present, return `"work": []`.

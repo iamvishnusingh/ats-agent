@@ -1,0 +1,18 @@
+From the resume text below, extract awards, honors, or notable recognition.
+
+--- resume ---
+{{ text_content }}
+---
+
+Return JSON:
+{
+  "awards": [
+    {
+      "title": null,
+      "date": "YYYY-MM or best effort",
+      "awarder": "issuer if known"
+    }
+  ]
+}
+
+If none, return `"awards": []`.

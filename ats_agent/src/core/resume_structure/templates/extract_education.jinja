@@ -1,0 +1,21 @@
+From the resume text below, extract formal education only.
+
+--- resume ---
+{{ text_content }}
+---
+
+Return JSON:
+{
+  "education": [
+    {
+      "institution": null,
+      "area": "field of study",
+      "studyType": "degree or program type",
+      "startDate": "YYYY-MM or null",
+      "endDate": "YYYY-MM or null",
+      "score": "GPA or honors text if explicitly stated, else null"
+    }
+  ]
+}
+
+If none, return `"education": []`.

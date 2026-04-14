@@ -1,0 +1,18 @@
+Score the following resume using the schema below. Each dimension is 0–25; `total_normalized_0_100` is the sum of the four dimension scores (so 0–100). Evidence must quote or tightly paraphrase the resume—never empty strings.
+
+Return JSON only:
+{
+  "dimension_scores": {
+    "depth_of_experience": { "score_0_25": 0, "evidence": "string" },
+    "projects_and_impact": { "score_0_25": 0, "evidence": "string" },
+    "skills_signal": { "score_0_25": 0, "evidence": "string" },
+    "clarity_and_outcomes": { "score_0_25": 0, "evidence": "string" }
+  },
+  "total_normalized_0_100": 0,
+  "top_strengths": ["max 5 short items"],
+  "priority_improvements": ["max 3 actionable items"]
+}
+
+--- resume ---
+{{ text_content }}
+---

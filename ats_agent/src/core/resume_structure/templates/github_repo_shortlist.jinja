@@ -1,0 +1,12 @@
+You receive structured data about a candidate's repositories (JSON below). Pick up to **7** distinct repositories that best signal **depth, real usage, and technical breadth** for a software role.
+
+Rules:
+- Prefer repos where the candidate shows **sustained** commits or clear ownership when that data exists.
+- Prefer work that is not only a generic tutorial scaffold when the metadata suggests that.
+- Favor widely used stacks and measurable impact (users, scale, latency, reliability) when described.
+- If fewer than seven repos qualify, return fewer—never duplicate entries.
+- Reply with **JSON only**: an array of objects with keys:
+  `name`, `description`, `url`, `technologies` (array of strings), `rationale` (one sentence), and pass through any useful numeric fields you were given (e.g. stars, commit counts) without inventing values.
+
+Repository JSON:
+{{ projects_data }}

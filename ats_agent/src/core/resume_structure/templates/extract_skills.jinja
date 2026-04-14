@@ -1,0 +1,18 @@
+From the resume text below, extract skills as grouped keywords (no proficiency unless explicitly stated).
+
+--- resume ---
+{{ text_content }}
+---
+
+Return JSON:
+{
+  "skills": [
+    {
+      "name": "category label (e.g. Languages, Cloud)",
+      "level": null,
+      "keywords": ["skill tokens"]
+    }
+  ]
+}
+
+Use a small number of sensible categories. If no skills are evident, return `"skills": []`.

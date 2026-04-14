@@ -1,0 +1,19 @@
+From the resume text below, extract personal, academic, or side projects.
+
+--- resume ---
+{{ text_content }}
+---
+
+Return JSON:
+{
+  "projects": [
+    {
+      "name": null,
+      "description": null,
+      "url": null,
+      "technologies": ["stack items if stated"]
+    }
+  ]
+}
+
+If none, return `"projects": []`. Do not fabricate URLs.

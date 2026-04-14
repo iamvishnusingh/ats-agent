@@ -1,0 +1,37 @@
+Senior Full Stack Developer - Remote
+
+About the Role:
+We are seeking a Senior Full Stack Developer to join our growing engineering team. You will be responsible for developing and maintaining our web applications using modern technologies and best practices.
+
+Key Responsibilities:
+• Design and develop scalable web applications using React, Node.js, and TypeScript
+• Build and maintain RESTful APIs and microservices architecture
+• Collaborate with cross-functional teams including product managers and designers
+• Write clean, maintainable code with comprehensive test coverage
+• Optimize application performance and ensure high availability
+• Mentor junior developers and conduct code reviews
+• Participate in agile development process and sprint planning
+
+Required Skills:
+• 4+ years of experience in full-stack web development
+• Strong proficiency in JavaScript, TypeScript, React, and Node.js
+• Experience with modern state management (Redux, Context API)
+• Knowledge of database design and optimization (PostgreSQL, MongoDB)
+• Familiarity with cloud platforms (AWS, GCP, Azure)
+• Experience with containerization (Docker, Kubernetes)
+• Understanding of CI/CD pipelines and DevOps practices
+• Strong communication skills and ability to work in a team environment
+
+Preferred Qualifications:
+• Experience with GraphQL and Apollo
+• Knowledge of machine learning or data science
+• Previous experience in a startup environment
+• Open source contributions
+• Bachelor's degree in Computer Science or related field
+
+What We Offer:
+• Competitive salary and equity package
+• Comprehensive health benefits
+• Flexible working hours and remote work options
+• Professional development opportunities
+• Modern tech stack and cutting-edge projects

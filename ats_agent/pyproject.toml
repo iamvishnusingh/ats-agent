@@ -1,0 +1,168 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ats-agent"
+version = "1.0.0"
+description = "Advanced ATS Resume Reviewer Agent"
+readme = "README.md"
+keywords = ["ats", "resume", "agent", "langchain", "fastapi"]
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi==0.115.12",
+    "uvicorn==0.32.1",
+    "pydantic==2.10.5",
+    "pydantic-settings==2.6.1",
+    "python-multipart==0.0.19",
+    "langchain==0.3.16",
+    "langchain-core==0.3.47",
+    "langchain-community==0.3.13",
+    "langchain-openai==0.2.14",
+    "langchain-google-genai==2.1.0",
+    "langgraph==0.2.56",
+    "pdfplumber==0.11.0",
+    "python-docx==1.1.0",
+    "nltk==3.8.1",
+    "scikit-learn==1.3.2",
+    "fuzzywuzzy==0.18.0",
+    "python-Levenshtein==0.23.0",
+    "psycopg2-binary==2.9.9",
+    "asyncpg==0.30.0",
+    "langfuse==2.60.10",
+    "python-dotenv==1.0.1",
+    "httpx==0.28.1",
+    "jinja2==3.1.4",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==8.3.4",
+    "pytest-asyncio==0.25.0",
+    "pytest-cov==6.0.0",
+    "black==24.10.0",
+    "isort==5.13.2",
+    "mypy==1.14.1",
+    "ruff==0.8.4",
+    "pre-commit==4.0.1",
+]
+
+[project.scripts]
+ats-agent = "ats_agent.src.main:run_service"
+ats-local-report = "ats_agent.src.cli.report:main"
+
+[project.urls]
+Homepage = "https://github.com/your-org/ats-agent-enterprise"
+Documentation = "https://docs.your-org.com/ats-agent"
+Repository = "https://github.com/your-org/ats-agent-enterprise.git"
+Issues = "https://github.com/your-org/ats-agent-enterprise/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["ats_agent"]
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+line_length = 88
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[[tool.mypy.overrides]]
+module = [
+    "pdfplumber.*",
+    "docx.*",
+    "nltk.*",
+    "sklearn.*",
+    "fuzzywuzzy.*",
+    "Levenshtein.*",
+    "langfuse.*",
+]
+ignore_missing_imports = true
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4", # flake8-comprehensions
+    "UP", # pyupgrade
+]
+ignore = [
+    "E501",  # line too long, handled by black
+    "B008",  # do not perform function calls in argument defaults
+]
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["F401"]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q --strict-markers --strict-config"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::UserWarning",
+    "ignore::DeprecationWarning",
+]
+asyncio_mode = "auto"
+
+[tool.coverage.run]
+source = ["ats_agent"]
+omit = [
+    "*/tests/*",
+    "*/test_*",
+    "*/__init__.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
