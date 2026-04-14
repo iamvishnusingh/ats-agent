@@ -13,9 +13,7 @@ FastAPI + LangGraph service that analyzes resumes against an optional job descri
 
 ## Install
 
-### Option A — Make (same idea as [template-agent](https://github.com/redhat-data-and-ai/template-agent) `make install` / `make local`)
-
-From the **repository root** (`ats-agent/`):
+### From the repository root (Make)
 
 ```bash
 make install          # creates ./.venv and pip install -e ./ats_agent
@@ -27,7 +25,7 @@ make local            # copies .env.example → .env if missing, then runs the s
 
 Other targets: `make clean`, `make test` (bytecode smoke compile).
 
-### Option B — Manual venv
+### Manual venv
 
 ```bash
 cd ats_agent
@@ -123,6 +121,7 @@ The file **`ats_agent.py`** at the repo root is an older **NLTK/sklearn** scorer
 ```
 ats-agent/
 ├── README.md                 # This file
+├── CONTRIBUTING.md           # How to contribute
 ├── ats_agent.py              # Legacy CLI scorer (optional)
 ├── ats_agent/                # Installable package (FastAPI + LangGraph)
 │   ├── pyproject.toml
@@ -142,6 +141,10 @@ ats-agent/
 - Job description: **text**, **URL**, or **omitted** (general ATS-style review).
 - LangGraph agent with tools (documents, keywords, structured JSON helpers, etc.).
 - Optional PostgreSQL only if you set `USE_INMEMORY_SAVER=false` and configure `POSTGRES_*`.
+
+## Contributing
+
+See **[CONTRIBUTING.md](CONTRIBUTING.md)** for expectations and how to submit changes.
 
 ## License
 
